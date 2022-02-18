@@ -97,6 +97,7 @@ export default {
         border: 1px solid #00001e;
         border-radius: 50%;
 
+        cursor: pointer;
         -webkit-appearance: none;
       }
     }

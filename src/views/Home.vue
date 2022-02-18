@@ -1,17 +1,14 @@
 <template>
   <div class="home">
-    <CustomRange />
+    <router-link to="/range">To Range</router-link>
+    <router-link to="/users">To Users</router-link>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import CustomRange from "@/components/CustomRange.vue";
 
 export default {
   name: "Home",
-  components: {
-    CustomRange,
-  },
 };
 </script>
