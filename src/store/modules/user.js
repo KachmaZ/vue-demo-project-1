@@ -21,6 +21,14 @@ export default {
       ctx.commit("updateCurrent", user);
       ctx.commit("updateFetchStatus", false);
     },
+
+    addUser(ctx, user) {
+      ctx.commit("updateAddUser", user)
+    },
+
+    delUser(ctx, userId) {
+      ctx.commit("updateDelUser", userId)
+    },
   },
 
   mutations: {
@@ -35,6 +43,14 @@ export default {
     updateFetchStatus(state, newStatus) {
       state.fetchStatus = newStatus;
     },
+
+    updateAddUser(state, user) {
+      state.users.shift(user);
+    },
+
+    updateDelUser(state, userId) {
+      state.users = state.users.filter((user) => user.id != userId);
+    }
   },
 
   state: {
@@ -54,4 +70,4 @@ export default {
       return state.fetchStatus;
     },
   },
-};
+}

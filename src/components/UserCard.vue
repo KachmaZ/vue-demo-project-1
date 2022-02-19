@@ -19,8 +19,8 @@
       </div>
       <div class="btn-wrapper m-4">
         <router-link class="btn btn-primary" :to="userLink"
-          >More details</router-link
-        >
+          >More details</router-link>
+          <div class="btn btn-warning" @click="delUser(user.id)">Delete User</div>
       </div>
     </div>
   </div>
@@ -35,7 +35,6 @@ export default {
   },
 
   computed: {
-    ...mapActions(["fetchById"]),
     userLink() {
       return `/users/${this.user.id}`;
     },
@@ -47,6 +46,10 @@ export default {
       return `http://${this.user.website}`;
     },
   },
+
+  methods: {    
+    ...mapActions(["fetchById", "delUser"]),
+  }
 };
 </script>
 
@@ -64,7 +67,7 @@ export default {
 
 .btn-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 </style>
