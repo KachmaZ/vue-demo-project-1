@@ -33,12 +33,13 @@ export default {
     color: rgb(208, 211, 38);
     font-size: 72px;
 
-    transition: 0.5s ;
+    background: #1e233c;
+
+    transition: 0.5s;
 
     &:hover {
       background-color: #333b66;
     }
-
   }
 }
 </style>

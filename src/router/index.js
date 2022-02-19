@@ -22,6 +22,11 @@ const routes = [
     name: "Users",
     component: Users,
   },
+  // Single user's page
+  {
+    path: "/users/:userId",
+    component: () => import("@/views/Profile.vue"), //Lasy render.
+  },
 ];
 
 const router = new VueRouter({
