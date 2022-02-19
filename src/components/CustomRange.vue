@@ -116,6 +116,7 @@ export default {
 
         color: #ffffff;
         font-size: 14px;
+        user-select: none;
 
         background-color: #516087;
 
@@ -128,7 +129,7 @@ export default {
 
   .range-value {
     width: 40px;
-    height: 25px;
+    height: 20px;
 
     display: flex;
     justify-content: center;
