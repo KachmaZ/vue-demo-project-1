@@ -1,6 +1,6 @@
 <template>
   <div class="range">
-    <CustomRange />
+    <CustomRange :scaled="true" />
   </div>
 </template>
 
@@ -18,10 +18,12 @@ export default {
 
 <style lang="scss" scoped>
 .range {
-    height: 100vh;
+  height: 100vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #1e233c;
 }
 </style>

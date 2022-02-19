@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" :class="{scaled}">
     <div class="range-container">
       <input
         class="custom-range"
@@ -26,6 +26,10 @@ export default {
     return {
       value: "0",
     };
+  },
+
+  props: {
+    scaled: Boolean,
   },
 
   methods: {
@@ -141,5 +145,9 @@ export default {
 
     border: 1px solid #ffffff;
   }
+}
+
+.scaled {
+  transform: scale(2);
 }
 </style>
