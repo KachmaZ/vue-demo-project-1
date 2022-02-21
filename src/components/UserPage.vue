@@ -3,14 +3,12 @@ information about user
 
 <template>
   <Loader v-if="isFetching" />
-  <div v-else class="userPage container my-4 px-4">
+  <div v-else class="userPage container my-4">
     <div class="row">
-      <UserInfo :user="currentUser" />
+      <UserInfo :user="getCurrentUser" />
     </div>
-    <div class="btn-wrapper m-4 d-flex justify-content-center">
-      <router-link class="btn btn-primary" to="/users"
-        >To main</router-link
-      >
+    <div class="btn-wrapper p-4 d-flex justify-content-center">
+      <router-link class="btn btn-primary" to="/users">To main</router-link>
     </div>
   </div>
 </template>
@@ -19,6 +17,7 @@ information about user
 import UserInfo from "@/components/UserInfo";
 // import CompanyInfo from "@/components/CompanyInfo";
 import Loader from "@/components/Loader";
+
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -26,9 +25,11 @@ export default {
     userId: String,
   },
 
-  computed: mapGetters(["currentUser", "isFetching"]),
+  computed: mapGetters(["getCurrentUser", "isFetching"]),
 
-  methods: mapActions(["fetchById"]),
+  methods: { 
+    ...mapActions(["fetchById"]),
+  },
 
   components: {
     UserInfo,
@@ -42,11 +43,22 @@ export default {
 };
 </script>
 
-<style scope>
-.userPage {  
-  color: rgb(208, 211, 38);
+<style lang="scss" scope>
+.userPage {
+  width: 50%;
+
+  color: #d0d326;
 
   border: 1px solid grey;
   border-radius: 10px;
+  .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-wrapper {
+    border-top: 1px solid grey;
+  }
 }
 </style>

@@ -12,22 +12,36 @@ export default {
     // Fetch one user from API by id
     async fetchById(ctx, id) {
       ctx.commit("updateFetchStatus", true);
+      
+      let user = ctx.state.users.find((user) => user.id == id)
 
-      const res = await fetch(
-        `https://jsonplaceholder.typicode.com/users/${id}`
-      );
-      const user = await res.json();
-
-      ctx.commit("updateCurrent", user);
+      ctx.commit("updateCurrentUser", user);
       ctx.commit("updateFetchStatus", false);
     },
 
     addUser(ctx, user) {
-      ctx.commit("updateAddUser", user)
+      user = {
+        ...user,
+        id: ctx.state.currentId,
+        phone: "No phone for synthetic user",
+        website: "synthetic-user.com",
+        address: {
+          street: "Not exists",
+          suite: "Not exists",
+          city: "Not exists",
+        }
+      }
+
+      ctx.commit("updateId", 1)
+      ctx.commit("updateAddUser", user);
     },
 
     delUser(ctx, userId) {
-      ctx.commit("updateDelUser", userId)
+      ctx.commit("updateDelUser", userId);
+    },
+
+    setFilterValue(ctx, newValue) {
+      ctx.commit("updateFilterValue", newValue);
     },
   },
 
@@ -36,8 +50,12 @@ export default {
       state.users = users;
     },
 
-    updateCurrent(state, current) {
-      state.current = current;
+    updateId(state, updId) {
+      state.currentId += updId;
+    },
+
+    updateCurrentUser(state, currentUser) {
+      state.currentUser = currentUser;
     },
 
     updateFetchStatus(state, newStatus) {
@@ -45,29 +63,41 @@ export default {
     },
 
     updateAddUser(state, user) {
-      state.users.shift(user);
+      state.users.unshift(user);
     },
 
     updateDelUser(state, userId) {
       state.users = state.users.filter((user) => user.id != userId);
-    }
+    },
+
+    updateFilterValue(state, newValue) {
+      state.filterValue = newValue;
+    },
   },
 
   state: {
     users: [], //contains full users list
-    current: {}, //contains current chosen user for UserPage component
+    currentId: 11,
+    filterValue: "",
+    currentUser: {}, //contains current chosen user for UserPage component
     fetchStatus: null, //represents current user fetching status to lead Loader component
   },
 
   getters: {
-    allUsers(state) {
+    getAllUsers(state) {
       return state.users;
     },
-    currentUser(state) {
-      return state.current;
+
+    getCurrentUser(state) {
+      return state.currentUser;
     },
+
+    getFilterValue(state) {
+      return state.filterValue.toLowerCase();
+    },
+
     isFetching(state) {
       return state.fetchStatus;
     },
   },
-}
+};

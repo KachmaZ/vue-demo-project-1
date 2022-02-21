@@ -3,11 +3,6 @@
 <template>
   <div class="col-lg-4 col-md-6 col-xs-10">
     <div class="card">
-      <!-- <img
-        class="card-img-top"
-        src="@/assets/user-icon.png"
-        alt="Card image cap"
-      /> -->
       <div class="card-body mx-4">
         <h4 class="card-title" :title="user.name">
           {{ user.username }}
@@ -19,8 +14,9 @@
       </div>
       <div class="btn-wrapper m-4">
         <router-link class="btn btn-primary" :to="userLink"
-          >More details</router-link>
-          <div class="btn btn-warning" @click="delUser(user.id)">Delete User</div>
+          >More details</router-link
+        >
+        <div class="btn btn-warning" @click="delUser(user.id)">Delete User</div>
       </div>
     </div>
   </div>
@@ -47,17 +43,22 @@ export default {
     },
   },
 
-  methods: {    
+  methods: {
     ...mapActions(["fetchById", "delUser"]),
-  }
+  },
 };
 </script>
 
 <style scoped>
 .card {
+  padding: 10px;
+
   display: flex;
 
-  color: rgb(208, 211, 38);
+  color: #d0d326;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 
   background-color: #333b66;
 

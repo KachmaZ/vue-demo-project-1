@@ -1,7 +1,7 @@
 // Pure css loader
 
 <template>
-  <div class="d-flex justify-content-center">
+  <div class="loader d-flex justify-content-center">
     <div class="lds-grid">
       <div></div>
       <div></div>
@@ -17,6 +17,9 @@
 </template>
 
 <style scoped>
+.loader {
+  margin-top: 100px;
+}
 .lds-grid {
   display: inline-block;
   position: relative;

@@ -1,7 +1,7 @@
 // Part of single user's page with personal information
 
 <template>
-  <div class="col-md-6">
+  <div class="col-md-12">
     <!-- <img class="col-md-3" src="@/assets/user-icon.png" alt="User Avatar" /> -->
     <h1>{{ user.username }}</h1>
     <h5><b>Full name:</b> {{ user.name }}</h5>

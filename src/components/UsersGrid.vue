@@ -3,21 +3,24 @@
 <template>
   <div class="container my-4">
     <div class="card-deck row gy-4 align-items-center">
-      <UserCard v-for="user in allUsers" :key="user.id" :user="user" />
+      <UserCard v-for="user in getFilteredUsers" :key="user.id" :user="user" />
     </div>
   </div>
 </template>
 
 <script>
 import UserCard from "@/components/UserCard";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
-  computed: mapGetters(["allUsers"]),
-  methods: mapActions(["fetchAll"]),
+  computed: {
+    ...mapGetters(["getAllUsers", "getFilterValue"]),
 
-  async mounted() {
-    this.fetchAll();
+    getFilteredUsers() {
+      return this.getAllUsers.filter((user) =>
+        user.username.toLowerCase().includes(this.getFilterValue)
+      );
+    },
   },
 
   components: {

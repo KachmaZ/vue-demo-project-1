@@ -1,16 +1,19 @@
 <template>
   <div class="range">
+    <ToMainLink />
     <CustomRange :scaled="true" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import ToMainLink from "@/components/ToMainLink"
 import CustomRange from "@/components/CustomRange.vue";
 
 export default {
   name: "Range",
   components: {
+    ToMainLink,
     CustomRange,
   },
 };

@@ -2,17 +2,20 @@
 
 <template>
   <div class="profile">
-    <UserPage :userId="$route.params.userId"/>
+    <ToMainLink />
+    <UserPage :userId="$route.params.userId" />
   </div>
 </template>
 
 <script>
-import UserPage from '@/components/UserPage'
+import ToMainLink from "@/components/ToMainLink";
+import UserPage from "@/components/UserPage";
 
 export default {
-    components: {
-        UserPage,
-    }
+  components: {
+    ToMainLink,
+    UserPage,
+  },
 };
 </script>
 

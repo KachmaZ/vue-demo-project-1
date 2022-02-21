@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :class="{scaled}">
+  <div class="container" :class="{ scaled }">
     <div class="range-container">
       <input
         class="custom-range"
