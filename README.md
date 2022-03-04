@@ -1,4 +1,4 @@
-# autotech-test
+# Vue-demo-project-1
 
 ## Project setup
 ```
