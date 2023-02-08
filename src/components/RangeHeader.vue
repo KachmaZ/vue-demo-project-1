@@ -1,5 +1,5 @@
 <template>
-  <div class="range-header container">
+  <div class="range-header">
     <ToMainLink />
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
   <style lang="scss" scoped>
 .range-header {
   width: 100%;
-  
+
   padding: 10px;
 
   position: fixed;

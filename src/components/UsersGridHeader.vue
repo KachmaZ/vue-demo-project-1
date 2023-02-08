@@ -1,5 +1,5 @@
 <template>
-  <div class="users-grid-header container">
+  <div class="users-grid-header">
     <ToMainLink />
     <UsersSearch />
     <UsersAdd />
