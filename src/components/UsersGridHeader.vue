@@ -22,6 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 .users-grid-header {
+  width: 100%;
   padding: 10px;
 
   position: fixed;
