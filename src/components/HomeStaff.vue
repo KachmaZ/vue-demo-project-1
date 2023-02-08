@@ -1,16 +1,22 @@
 <template>
   <div class="home-staff">
-    <div class="link-menu">
-      <router-link class="link-tyle" to="/range">To Range</router-link>
-      <router-link class="link-tyle" to="/users">To User</router-link>
+    <div class="link-menu row">
+      <router-link class="link-tyle col-12 col-md-6" to="/range"
+        >To Range</router-link
+      >
+      <router-link class="link-tyle col-12 col-md-6" to="/users"
+        >To User</router-link
+      >
     </div>
   </div>
 </template>
 
-<script>
-import {mapActions} from "vuex"
+<!-- TODO мобильная версия -->
 
-export default {    
+<script>
+import { mapActions } from "vuex";
+
+export default {
   methods: mapActions(["fetchAll"]),
 
   async mounted() {
@@ -21,12 +27,11 @@ export default {
 
 <style lang="scss" scoped>
 .link-menu {
-  width: 100%;
+  // width: 100%;
   height: 100vh;
   display: flex;
 
   .link-tyle {
-    width: 50%;
     height: 100%;
 
     display: flex;

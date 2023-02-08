@@ -27,7 +27,7 @@ export default {
 
   computed: mapGetters(["getCurrentUser", "isFetching"]),
 
-  methods: { 
+  methods: {
     ...mapActions(["fetchById"]),
   },
 
@@ -45,8 +45,6 @@ export default {
 
 <style lang="scss" scope>
 .userPage {
-  width: 50%;
-
   color: #d0d326;
 
   border: 1px solid grey;

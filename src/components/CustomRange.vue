@@ -1,15 +1,15 @@
 <template>
-  <div class="container" :class="{ scaled }">
+  <div class="custom-range">
     <div class="range-container">
       <input
-        class="custom-range"
+        class="range-container_input"
         type="range"
         min="0"
         max="100"
         v-model="value"
       />
 
-      <div class="btns-container">
+      <div class="range-container_btns">
         <div class="range-btn" @click="setValue(25)">25%</div>
         <div class="range-btn" @click="setValue(50)">50%</div>
         <div class="range-btn" @click="setValue(75)">75%</div>
@@ -28,10 +28,6 @@ export default {
     };
   },
 
-  props: {
-    scaled: Boolean,
-  },
-
   methods: {
     setValue: function (value) {
       this.value = value;
@@ -41,21 +37,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  width: 400px;
+.custom-range {
   margin: 20px;
   display: flex;
 
   .range-container {
-    width: 100%;
     margin-right: 20px;
+
     display: flex;
     flex-direction: column;
 
-    .custom-range {
+    &_input {
+      width: 300px;
+
       -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-      width: 100%; /* Specific width is required for Firefox. */
-      margin-right: 20px;
       margin-bottom: 20px;
       background: transparent; /* Otherwise white in Chrome */
 
@@ -106,7 +101,7 @@ export default {
       }
     }
 
-    .btns-container {
+    &_btns {
       display: flex;
       justify-content: space-around;
 
@@ -132,7 +127,7 @@ export default {
   }
 
   .range-value {
-    width: 40px;
+    min-width: 40px;
     height: 20px;
 
     display: flex;
@@ -144,10 +139,19 @@ export default {
     line-height: 14px;
 
     border: 1px solid #ffffff;
+    border-radius: 5px;
   }
 }
 
-.scaled {
-  transform: scale(2);
+@media screen and (min-width: 576px) {
+  .custom-range {
+    transform: scale(1.5);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .custom-range {
+    transform: scale(2);
+  }
 }
 </style>

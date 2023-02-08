@@ -1,7 +1,7 @@
 // Full grid of user cards
 
 <template>
-  <div class="container my-4">
+  <div class="users-grid container">
     <div class="card-deck row gy-4 align-items-center">
       <UserCard v-for="user in getFilteredUsers" :key="user.id" :user="user" />
     </div>
@@ -28,3 +28,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.users-grid {
+  padding-top: 80px;
+}
+</style>

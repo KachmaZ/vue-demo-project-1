@@ -1,19 +1,19 @@
 <template>
   <div class="range">
-    <ToMainLink />
+    <RangeHeader />
     <CustomRange :scaled="true" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import ToMainLink from "@/components/ToMainLink"
+import RangeHeader from "../components/RangeHeader.vue";
 import CustomRange from "@/components/CustomRange.vue";
 
 export default {
   name: "Range",
   components: {
-    ToMainLink,
+    RangeHeader,
     CustomRange,
   },
 };
@@ -22,6 +22,7 @@ export default {
 <style lang="scss" scoped>
 .range {
   height: 100vh;
+  position: relative;
 
   display: flex;
   justify-content: center;

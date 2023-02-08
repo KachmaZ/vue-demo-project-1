@@ -12,8 +12,8 @@ export default {
     // Fetch one user from API by id
     async fetchById(ctx, id) {
       ctx.commit("updateFetchStatus", true);
-      
-      let user = ctx.state.users.find((user) => user.id == id)
+
+      let user = ctx.state.users.find((user) => user.id == id);
 
       ctx.commit("updateCurrentUser", user);
       ctx.commit("updateFetchStatus", false);
@@ -29,10 +29,10 @@ export default {
           street: "Not exists",
           suite: "Not exists",
           city: "Not exists",
-        }
-      }
+        },
+      };
 
-      ctx.commit("updateId", 1)
+      ctx.commit("updateId", 1);
       ctx.commit("updateAddUser", user);
     },
 
